@@ -16,9 +16,6 @@ $Configuration
 		$AdditionalIncludeDirectories		"$BASE,..\common,..\vmpi,..\vmpi\mysql\mysqlpp\include,..\vmpi\mysql\include"
 		$PreprocessorDefinitions			"$BASE;MPI" [$WIN32]
 		$PreprocessorDefinitions			"$BASE;PROTECTED_THINGS_DISABLE;VRAD"
-
-		$Create/UsePrecompiledHeader		"Use Precompiled Header (/Yu)"
-		$PrecompiledHeaderFile				"$(IntDir)/vrad_launcher.pch"
 	}
 
 	$Linker [$WIN32]
@@ -35,17 +32,6 @@ $Project "VRAD_SINGLE_EXE"
 		-$File	"$SRCDIR\public\tier0\memoverride.cpp"
 		
 		$File	"vrad_launcher.cpp"
-		
-		$File	"StdAfx.cpp"
-		{
-			$Configuration
-			{
-				$Compiler
-				{
-					$Create/UsePrecompiledHeader		"Create Precompiled Header (/Yc)"
-				}
-			}
-		}
 
 		$File	"$SRCDIR\public\BSPTreeData.cpp"
 		$File	"$SRCDIR\public\disp_common.cpp"
@@ -106,8 +92,6 @@ $Project "VRAD_SINGLE_EXE"
 
 	$Folder	"Header Files"
 	{
-		$File	"StdAfx.h"
-
 		$File	"disp_vrad.h"
 		$File	"iincremental.h"
 		$File	"imagepacker.h"
