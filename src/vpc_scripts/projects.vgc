@@ -130,6 +130,11 @@ $Project "vrad_launcher"
 	"utils\vrad_launcher\vrad_launcher.vpc" [$WINDOWS]
 }
 
+$Project "vrad_single_exe"
+{
+	"utils\vrad_single_exe\vrad_single_exe.vpc" [$WINDOWS]
+}
+
 $Project "vtf2tga"
 {
 	"utils\vtf2tga\vtf2tga.vpc" [$WINDOWS]

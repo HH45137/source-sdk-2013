@@ -502,3 +502,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/game/mod_hl2mp
+game/*.exe
+game/platform/config/InGameDialogConfig.vdf
+game/platform/config/ServerBrowser.vdf
+game/steam_appid.txt
