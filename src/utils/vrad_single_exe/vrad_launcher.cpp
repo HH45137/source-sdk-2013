@@ -11,12 +11,14 @@
 //#include "stdafx.h"
 #include <direct.h>
 //#include "tier1/strtools.h"
-//#include "tier0/icommandline.h"
+#include "tier0/icommandline.h"
 #include "vrad.h"
 
 
 int main(int argc, char* argv[])
 {
+	CommandLine()->CreateCmdLine(argc, argv);
+
 	// check whether they used the -both switch. If this is specified, vrad will be run
 	// twice, once with -hdr and once without
 	int both_arg=0;
@@ -37,6 +39,7 @@ int main(int argc, char* argv[])
 			strcpy(argv[both_arg],(mode)?"-hdr":"-ldr");
 		returnValue = VRAD_Main( argc, argv );
 	}
+
 	return returnValue;
 }
 
