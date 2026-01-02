@@ -507,3 +507,4 @@ game/*.exe
 game/platform/config/InGameDialogConfig.vdf
 game/platform/config/ServerBrowser.vdf
 game/steam_appid.txt
+/src/.idea
