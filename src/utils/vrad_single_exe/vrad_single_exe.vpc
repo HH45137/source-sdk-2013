@@ -13,10 +13,16 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories		"$BASE,..\common,..\vmpi,..\vmpi\mysql\mysqlpp\include,..\vmpi\mysql\include"
+		$AdditionalIncludeDirectories		"$BASE,..\common,..\vmpi,..\vmpi\mysql\mysqlpp\include,..\vmpi\mysql\include,$(CUDA_PATH)\include"
 		$PreprocessorDefinitions			"$BASE;MPI" [$WIN32]
-		$PreprocessorDefinitions			"$BASE;PROTECTED_THINGS_DISABLE;VRAD"
+		$PreprocessorDefinitions			"$BASE;PROTECTED_THINGS_DISABLE;VRAD;ENABLE_CUDA"
 	}
+
+    $Linker [$WIN64]
+    {
+        $AdditionalLibraryDirectories    "$BASE;$(CUDA_PATH)\lib\x64"
+        $AdditionalDependencies          "$BASE cudart.lib"
+    }
 
 	$Linker [$WIN32]
 	{
@@ -27,6 +33,12 @@ $Configuration
 
 $Project "VRAD_SINGLE_EXE"
 {
+	$Folder "CUDA Files"
+	{
+		$File "cuda_impl.cuh"
+		$File "cuda_impl.cu"
+	}
+
 	$Folder	"Source Files"
 	{
 		-$File	"$SRCDIR\public\tier0\memoverride.cpp"
